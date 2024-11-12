@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+</head>
+
+<body class="flex justify-center items-center h-screen bg-gray-50">
+  <main id="app" class="container mx-auto max-w-[350px] ">
+    <div id="calculator" class="bg-slate-200 h-auto rounded-lg p-10">
+      <input id="display" readonly
+        class="w-full bg-slate-50 border outline-none focus:ring-slate-300 focus:ring-4 py-3 px-5 rounded-lg text-end text-2xl">
+      <div id="keys" class="grid grid-cols-4 place-items-center gap-4 mt-5 text-xl">
+        <button onclick="addToDisplay('+')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+        <button onclick="addToDisplay('-')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+          </svg>
+
+        </button>
+        <button onclick="addToDisplay('*')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <button onclick="addToDisplay('/')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4.499 11.998h15m-7.5-6.75h.008v.008h-.008v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM12 18.751h.007v.007H12v-.007Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+        </button>
+        <button onclick="addToDisplay('6')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">6</button>
+        <button onclick="addToDisplay('7')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">7</button>
+        <button onclick="addToDisplay('8')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">8</button>
+        <button onclick="addToDisplay('9')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">9</button>
+        <button onclick="addToDisplay('5')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">5</button>
+        <button onclick="addToDisplay('4')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">4</button>
+        <button onclick="addToDisplay('3')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">3</button>
+        <button onclick="addToDisplay('2')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">2</button>
+        <button onclick="del()"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">Del</button>
+        <button onclick="addToDisplay('0')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">0</button>
+        <button onclick="addToDisplay('1')"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full">1</button>
+        <button onclick="calculate()"
+          class="bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center rounded-full"><svg
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.499 8.248h15m-15 7.501h15" />
+          </svg>
+        </button>
+        <button onclick="clearDisplay()"
+          class="col-span-4 bg-slate-300 hover:bg-slate-400 hover:text-gray-100 size-14 flex justify-center items-center w-full">Clear</button>
+      </div>
+    </div>
+  </main>
+  <script type="module">
+    import { addToDisplay } from "./main.js";
+    import { del } from "./main.js";
+    import { calculate } from "./main.js";
+    import { clearDisplay } from "./main.js";
+    window.addToDisplay = addToDisplay;
+    window.del = del;
+    window.calculate = calculate;
+    window.clearDisplay = clearDisplay;
+  </script>
+</body>
+
+</html>
